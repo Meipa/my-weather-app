@@ -52,6 +52,11 @@ h4 {
 
 .temp-units {
   position: relative;
-  font-size: 12px;
+  font-size: 16px;
   top: -10px;
+}
+.temp-celsius,
+.temp-fahrenheit {
+  text-decoration: none;
+  color: #5a6275;
 }
