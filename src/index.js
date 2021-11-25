@@ -29,12 +29,13 @@ let month = months[now.getMonth()];
 let currentWeekday = weekdays[now.getDay()];
 p.innerHTML = `${currentWeekday}, ${date} ${month} ${year}, ${hours}:${minutes}h`;
 
-function searchCity(event) {
-  event.preventDefault();
+function searchCity(city) {
   let searchInput = document.querySelector("#searchbox-input");
   let currentCity = document.querySelector("#currentCity");
-
+  let apiKey = "17550fd68ce06aee922346dcd610ca0a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   currentCity.innerHTML = `${searchInput.value}`;
+  axios.get(apiUrl).then(displayWeatherCondition);
 }
 
 let form = document.querySelector("#submit-city");
