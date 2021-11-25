@@ -49,3 +49,9 @@ h4 {
 .geoLocation {
   background-color: red;
 }
+
+.temp-units {
+  position: relative;
+  font-size: 12px;
+  top: -10px;
+}
