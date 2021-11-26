@@ -2,6 +2,7 @@ body {
   margin-top: 30px;
   color: #5a6275;
   font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
 }
 header {
   margin-top: 10px;

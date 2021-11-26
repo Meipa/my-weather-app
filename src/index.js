@@ -37,21 +37,24 @@ function searchCity(city) {
   currentCity.innerHTML = `${searchInput.value}`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
+function displayWeatherDescription(response) {
+  let description = document.querySelector("weatherDescription");
+  description.innerHTML.response.data.weather[0].description;
+  axios.get(apiUrl).then(displayWeatherDescription);
+}
 
 let form = document.querySelector("#submit-city");
 form.addEventListener("submit", searchCity);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let celsius = 10;
-  let fahrenheit = Math.round((celsius * 9) / 5 + 32);
+  let fahrenheit = Math.round((toCelsius * 9) / 5 + 32);
   let temperature = document.querySelector("span.temp-number");
   temperature.innerHTML = `${fahrenheit}`;
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let celsius = 10;
   let temperature = document.querySelector("span.temp-number");
   temperature.innerHTML = `${celsius}`;
 }
