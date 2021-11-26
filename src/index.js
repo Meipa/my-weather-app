@@ -89,4 +89,4 @@ submit.addEventListener("submit", inputCity);
 let currentLocationButton = document.querySelector("#geoLocation");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-searchCity("London");
+searchCity("Tahiti");
