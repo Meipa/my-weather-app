@@ -40,11 +40,17 @@ function searchCity(city) {
 function displayWeatherDescription(response) {
   let description = document.querySelector("weatherDescription");
   description.innerHTML.response.data.weather[0].description;
+
+  let form = document.querySelector("#submit-city");
+  form.addEventListener("submit", searchCity);
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML.response.data.main.humidity;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML.response.data.main.wind.speed;
   axios.get(apiUrl).then(displayWeatherDescription);
 }
-
-let form = document.querySelector("#submit-city");
-form.addEventListener("submit", searchCity);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -55,6 +61,7 @@ function convertToFahrenheit(event) {
 
 function convertToCelsius(event) {
   event.preventDefault();
+  let celsius = Math.round(((toFahrenheit - 32) * 5) / 9);
   let temperature = document.querySelector("span.temp-number");
   temperature.innerHTML = `${celsius}`;
 }
