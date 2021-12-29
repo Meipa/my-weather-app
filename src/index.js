@@ -40,20 +40,20 @@ function searchCity(city) {
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let fahrenheit = Math.round((toCelsius * 9) / 5 + 32);
+  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
   let temperature = document.querySelector("span.temp-number");
   temperature.innerHTML = `${fahrenheit}`;
 }
 
+let toFahrenheit = document.querySelector("#fahrenheit");
+toFahrenheit.addEventListener("click", convertToFahrenheit);
+
 function convertToCelsius(event) {
   event.preventDefault();
   let celsius = Math.round(((toFahrenheit - 32) * 5) / 9);
-  let temperature = document.querySelector("span.temp-number");
+  let temperature = document.querySelector("#temperature");
   temperature.innerHTML = `${celsius}`;
 }
-
-let toFahrenheit = document.querySelector("#fahrenheit");
-toFahrenheit.addEventListener("click", convertToFahrenheit);
 
 let toCelsius = document.querySelector("#celsius");
 toCelsius.addEventListener("click", convertToCelsius);
@@ -76,6 +76,9 @@ function displayWeatherCondition(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchLocation(position) {
@@ -98,5 +101,7 @@ submit.addEventListener("submit", inputCity);
 
 let currentLocationButton = document.querySelector("#geoLocation");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+let celsiusTemperature = null;
 
 searchCity("Tahiti");
