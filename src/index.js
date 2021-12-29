@@ -50,9 +50,8 @@ toFahrenheit.addEventListener("click", convertToFahrenheit);
 
 function convertToCelsius(event) {
   event.preventDefault();
-  let celsius = Math.round(((toFahrenheit - 32) * 5) / 9);
   let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = `${celsius}`;
+  temperature.innerHTML = Math.round(celsiusTemperature);
 }
 
 let toCelsius = document.querySelector("#celsius");
