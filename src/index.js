@@ -36,6 +36,28 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+
+function searchLocation(position) {
+  let apiKey = "17550fd68ce06aee922346dcd610ca0a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+function inputCity(event) {
+  event.preventDefault();
+  let city = document.querySelector("#searchbox-input").value;
+  searchCity(city);
+}
+let submit = document.querySelector("#submit-city");
+submit.addEventListener("submit", inputCity);
+
+let currentLocationButton = document.querySelector("#geoLocation");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
 function searchCity(city) {
   let searchInput = document.querySelector("#searchbox-input");
   let currentCity = document.querySelector("#currentCity");
@@ -55,14 +77,14 @@ function convertToFahrenheit(event) {
 let toFahrenheit = document.querySelector("#fahrenheit");
 toFahrenheit.addEventListener("click", convertToFahrenheit);
 
+let toCelsius = document.querySelector("#celsius");
+toCelsius.addEventListener("click", convertToCelsius);
+
 function convertToCelsius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(celsiusTemperature);
 }
-
-let toCelsius = document.querySelector("#celsius");
-toCelsius.addEventListener("click", convertToCelsius);
 
 function getForecast(coordinates) {
   let apiKey = "17550fd68ce06aee922346dcd610ca0a";
@@ -94,27 +116,6 @@ function displayWeatherCondition(response) {
 
   getForecast(response.data.coord);
 }
-
-function searchLocation(position) {
-  let apiKey = "17550fd68ce06aee922346dcd610ca0a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayWeatherCondition);
-}
-
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
-function inputCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#searchbox-input").value;
-  searchCity(city);
-}
-let submit = document.querySelector("#submit-city");
-submit.addEventListener("submit", inputCity);
-
-let currentLocationButton = document.querySelector("#geoLocation");
-currentLocationButton.addEventListener("click", getCurrentLocation);
 
 let celsiusTemperature = null;
 
