@@ -112,12 +112,12 @@ function displayForecast() {
     forecastHTML =
       forecastHTML +
       `
-      <div class="col-sm-2">
+      <div class="col-2">
          <ul>
             <li><h4><span class="weather-forecast-date">${day}</span></h4></li>
             <li><strong><span class="weather-forecast-temp-min">30</span>°C</strong> / <span class="weather-forecast-temp-max">89</span>°C</li>
               <br />
-            <li><img src="http://openweathermap.org/img/wn/50d@2x.png" alt="sunshine" /></li>
+            <li><img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" /></li>
         </ul>
             </div>
           </div>
@@ -128,3 +128,4 @@ function displayForecast() {
 }
 
 searchCity("Tahiti");
+displayForecast();
