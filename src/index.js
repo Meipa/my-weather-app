@@ -147,7 +147,6 @@ function displayForecast(response) {
           alt="" /></li>
         </ul>
             </div>
-          </div>
           `;
     }
   });
