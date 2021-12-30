@@ -103,4 +103,24 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 let celsiusTemperature = null;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `
+      <div class="col-sm-2">
+         <ul>
+            <li><h4><span class="weather-forecast-date">Mon</span></h4></li>
+            <li><strong><span class="weather-forecast-temp-min">30</span>°C</strong> / <span class="weather-forecast-temp-max">89</span>°C</li>
+              <br />
+            <li><img src="images/sunshine.png" alt="sunshine" /></li>
+        </ul>
+            </div>
+          </div>
+          `;
+  forecastElement.Element = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 searchCity("Tahiti");
