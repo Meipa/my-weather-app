@@ -105,20 +105,24 @@ let celsiusTemperature = null;
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+
   let forecastHTML = `<div class="row">`;
-  forecastHTML =
-    forecastHTML +
-    `
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
       <div class="col-sm-2">
          <ul>
-            <li><h4><span class="weather-forecast-date">Mon</span></h4></li>
+            <li><h4><span class="weather-forecast-date">${day}</span></h4></li>
             <li><strong><span class="weather-forecast-temp-min">30</span>°C</strong> / <span class="weather-forecast-temp-max">89</span>°C</li>
               <br />
-            <li><img src="images/sunshine.png" alt="sunshine" /></li>
+            <li><img src="http://openweathermap.org/img/wn/50d@2x.png" alt="sunshine" /></li>
         </ul>
             </div>
           </div>
           `;
+  });
   forecastElement.Element = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
